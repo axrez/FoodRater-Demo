@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "jest",
+    "debug": "react-devtools"
   },
   "dependencies": {
+    "firebase": "^6.0.2",
     "react": "16.8.3",
     "react-native": "0.59.8",
     "react-native-gesture-handler": "^1.2.1",
@@ -19,6 +21,7 @@
     "babel-jest": "^24.8.0",
     "jest": "^24.8.0",
     "metro-react-native-babel-preset": "^0.54.1",
+    "react-devtools": "^3.6.1",
     "react-test-renderer": "16.8.3"
   },
   "jest": {

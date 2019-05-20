@@ -6,10 +6,21 @@ import React, {useState} from 'react';
 import { View, Text, ImageBackground, StyleSheet, TextInput, Button, } from 'react-native';
 
 import LogInBG from '../assets/LogInBG.jpg'
+import Firebase from '../utils/firebase'
 
-const LogIn = props => {
+const LogInView = ({ updateUserData }) => {
   const [email, useEmail] = useState("");
   const [password, usePassword] = useState("");
+  const [err, useErr] = useState(false);
+
+  const signIn = async e => {
+    Firebase.auth().signInWithEmailAndPassword(email, password)
+      .then(data => {
+        useErr(false)
+        return(updateUserData(data))
+      })
+      .catch(() => useErr(true));
+  }
 
   return(
     <ImageBackground
@@ -21,20 +32,23 @@ const LogIn = props => {
           placeholder="Email" 
           style={styles.TextInput} 
           onChangeText={text => useEmail(text)}
+          autoCapitalize="none"
+          autoCorrect={false}
           />
         <TextInput 
           placeholder="Password" 
           style={styles.TextInput} 
           secureTextEntry
+          autoCapitalize="none"
+          autoCorrect={false}
           onChangeText={text => usePassword(text)}
           />
-        <Text>{`${email} og ${password}`}</Text>
         <View style={{flexDirection: 'row'}}>
           <View style={{margin: 10}}>
             <Button title="Opret" color="#090063" />
           </View>
           <View style={{margin: 10}}>
-            <Button title="Log Ind" color="#820303" />
+            <Button title="Log Ind" color="#820303" onPress={e => signIn(e)} />
           </View>
         </View>
     </ImageBackground>
@@ -59,4 +73,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default LogIn;
+export default LogInView;

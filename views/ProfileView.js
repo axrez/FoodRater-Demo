@@ -9,7 +9,7 @@ class ProfileView extends React.Component {
     tabBarIcon: () => (<Ionicon name={'md-person'} size={26} />),
   }
   render() {
-    return (<ProfilePage userLoggedIn={false} />);
+    return (<ProfilePage />);
   }
 }
 
