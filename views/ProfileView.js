@@ -1,7 +1,7 @@
 import React from 'react';
 import Ionicon from 'react-native-vector-icons/Ionicons';
 
-import Profile from '../components/Profile'
+import ProfilePage from '../components/ProfilePage'
 
 class ProfileView extends React.Component {
   static navigationOptions ={
@@ -9,7 +9,7 @@ class ProfileView extends React.Component {
     tabBarIcon: () => (<Ionicon name={'md-person'} size={26} />)
   }
   render() {
-    return (<Profile />);
+    return (<ProfilePage userLoggedIn={true} />);
   }
 }
 
