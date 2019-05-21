@@ -4,18 +4,21 @@
  */
 
 import React, { useState } from 'react';
-import {View, Text, Image, StyleSheet, FlatList, Switch} from 'react-native';
+import { View, Text, Image, StyleSheet, FlatList, Switch } from 'react-native';
+
+import InBarButton from './InBarButton'
 
 // Indholdet af listen med indstillinger
 const menuItems = [{key: 'Ændre brugeroplysninger'}, {key: 'Mine Reviews'}, {key: 'Mine Tilbud'},{key: 'Feedback'}, {key: 'Support'}, ];
 
-const Profile = props => {
+const Profile = ({ updateUserData }) => {
   //Lav et state der håndtere swtichen i bunden af siden
   const [newsLetter, useNewsLetter] = useState(true);
   return(
     <View style={styles.wrapper} >
       <View style={styles.TopBar} >
         <Text style={styles.Title} >Profil</Text>
+        <InBarButton title="Log Ud" underlayColor="red" style={styles.InBarButton} onPress={() => updateUserData(null)}  />
       </View>
       <Image
         style={styles.Image} 
@@ -41,7 +44,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   TopBar: {
-    justifyContent: 'center',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
     alignItems: 'center',
     width: '100%',
     height: 50,
@@ -52,7 +56,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: '#000',
     fontWeight: '600',
-    margin: 8
+    margin: 8,
+    marginLeft: 10,
   },
   Image: {
     width: 200,
@@ -70,6 +75,10 @@ const styles = StyleSheet.create({
     width: 200,
     textAlign: 'center',
     backgroundColor: '#ddd',
+  },
+  InBarButton: {
+    padding: 8,
+    marginRight: 10,
   }
 });
 

@@ -1,3 +1,8 @@
+/**
+ * Håndtere brugerns login state, men skal laves om.
+ * 
+ */
+
 import React, { useState } from 'react';
 import { View } from 'react-native';
 
@@ -9,7 +14,7 @@ const ProfilePage = props => {
 
   return(
     <View>
-      { userData ? <Profile /> : <LogIn updateUserData={useUserData} /> }
+      { userData ? <Profile updateUserData={useUserData} /> : <LogIn updateUserData={useUserData} /> }
     </View>
   );
 };
