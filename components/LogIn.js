@@ -43,6 +43,7 @@ const LogInView = ({ updateUserData }) => {
           autoCorrect={false}
           onChangeText={text => usePassword(text)}
           />
+        {/* <Text style={styles.error} >Error</Text> */}
         <View style={{flexDirection: 'row'}}>
           <View style={{margin: 10}}>
             <Button title="Opret" color="#090063" />
@@ -70,6 +71,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     margin: 10,
     width: '50%',
+  },
+  error: {
+    color: 'red',
+    backgroundColor: '#eee',
+    padding: 20
   }
 })
 

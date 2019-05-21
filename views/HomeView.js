@@ -10,7 +10,8 @@ class HomeView extends React.Component {
     tabBarIcon: () => (<Ionicon name={'md-home'} size={26} />)
   }
   render() {
-    return (<Home />);
+    const { navigate } = this.props.navigation
+    return (<Home navigate={navigate} />);
   }
 }
 

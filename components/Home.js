@@ -1,11 +1,11 @@
 import React from 'react';
 import { View, Text, Button } from 'react-native';
 
-const Home = props => {
+const Home = ({ navigate }) => {
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Home asdffasdfrr</Text>
-      <Button title="Profile" onPress={() => null} />
+      <Text>Home</Text>
+      <Button title="Profile" onPress={() => navigate('Profile')} />
     </View>
   );
 }
